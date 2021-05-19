@@ -2,23 +2,20 @@
 using namespace std;
 namespace pandemic {
     FieldDoctor &FieldDoctor::treat(City city) {
-        //if the given city is current city - same action as player
-        if(currentCity == city){
-            Player::treat(city);
-        }
-        if (city != currentCity && !board.isConnected(currentCity,city)) {
-            string message = "Illegal action! " + board.getCityName(city) + " isn't current city or one of its neighbors!\n";
+        if (city != currentCity && !board.isConnected(currentCity, city)) {
+            string message ="Illegal action! " + board.getCityName((city)) + " isn't current city or one of its neighbors!\n";
             throw std::invalid_argument(message);
         }
         Color color = board.getColor(city);
         if (board.getDiseaseLevel(city) == 0) {
-            string message = "City is already cured!\n";
+            string message =
+                    "Current city's level of disease is 0!";
             throw std::invalid_argument(message);
         }
         switch (color) {
             case Blue:
-                //if a cure was found - nullify disease level
-                if (board.blueCure) {
+                //if has cure for this disease color - nullify to zero
+                if (board.blackCure) {
                     board.nullifyDiseaseLevel(city);
                 } else {
                     board.lowerDiseaseLevel(city);
@@ -26,7 +23,7 @@ namespace pandemic {
                 break;
 
             case Yellow:
-                //if a cure was found - nullify disease level
+                //if has cure for this disease color - nullify to zero
                 if (board.yellowCure) {
                     board.nullifyDiseaseLevel(city);
                 } else {
@@ -35,7 +32,7 @@ namespace pandemic {
                 break;
 
             case Black:
-                //if a cure was found - nullify disease level
+                //if has cure for this disease color - nullify to zero
                 if (board.blackCure) {
                     board.nullifyDiseaseLevel(city);
                 } else {
@@ -44,7 +41,7 @@ namespace pandemic {
                 break;
 
             case Red:
-                //if a cure was found - nullify disease level
+                //if has cure for this disease color - nullify to zero
                 if (board.redCure) {
                     board.nullifyDiseaseLevel(city);
                 } else {
@@ -54,4 +51,5 @@ namespace pandemic {
         }
         return *this;
     }
+
 }

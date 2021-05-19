@@ -5,27 +5,27 @@ namespace pandemic {
 
     
 
-    Medic &Medic::drive(City other) {
-        Player::drive(other);
-        ability(other);
+    Medic &Medic::drive(City city) {
+        Player::drive(city);
+        ability(city);
         return *this;
     }
 
-    Medic &Medic::fly_direct(City dest_city) {
-        Player::fly_direct(dest_city);
-        ability(dest_city);
+    Medic &Medic::fly_direct(City city) {
+        Player::fly_direct(city);
+        ability(city);
         return *this;
     }
 
-    Medic &Medic::fly_charter(City dest_city) {
-        Player::fly_charter(dest_city);
-        ability(dest_city);
+    Medic &Medic::fly_charter(City city) {
+        Player::fly_charter(city);
+        ability(city);
         return *this;
     }
 
-    Medic &Medic::fly_shuttle(City dest_city) {
-        Player::fly_shuttle(dest_city);
-        ability(dest_city);
+    Medic &Medic::fly_shuttle(City city) {
+        Player::fly_shuttle(city);
+        ability(city);
         return *this;
 }
 

@@ -69,7 +69,7 @@ namespace pandemic {
 
     protected:
         /*Moves to destination with the given card as a cost. */
-        void fly(City dest, City card);
+        void fly(City city, City card);
         /*Removes all cards from player's hand.*/
         bool removeCards(size_t indexStart, size_t indexEnd, int n);
     };
